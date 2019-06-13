@@ -8,6 +8,7 @@ checks:
   similar-code:
     enabled: false
 exclude_patterns:
+  - "./*.js"
   - "src/*.js"
   - "src/**/*.js.snap"
   - "src/**/*.test.js"
