@@ -1,11 +1,9 @@
 # GBC Printer
 
-<!--
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bca3f376-faba-4bde-8349-15c4ec354450/deploy-status)](https://app.netlify.com/sites/gbc-printer/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc602651-0660-4e9e-acae-c0e765f22ae1/deploy-status)](https://app.netlify.com/sites/laughing-lamarr-340367/deploys)
 &nbsp;
-[![CI Status](https://circleci.com/gh/Jonic/gbc-printer.svg?style=svg)](https://circleci.com/gh/Jonic/gbc-printer)
+[![CircleCI](https://circleci.com/gh/Jonic/gbc-printer.svg?style=svg)](https://circleci.com/gh/Jonic/gbc-printer)
 &nbsp;
-[![Maintainability](https://api.codeclimate.com/v1/badges/c4d91e37e0dc737cb653/maintainability)](https://codeclimate.com/github/Jonic/gbc-printer/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0adc3bbe5e58fe5cbb88/maintainability)](https://codeclimate.com/github/Jonic/gbc-printer/maintainability)
 &nbsp;
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c4d91e37e0dc737cb653/test_coverage)](https://codeclimate.com/github/Jonic/gbc-printer/test_coverage)
--->
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0adc3bbe5e58fe5cbb88/test_coverage)](https://codeclimate.com/github/Jonic/gbc-printer/test_coverage)
