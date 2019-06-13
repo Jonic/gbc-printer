@@ -12,4 +12,5 @@ ReactDOM.render(
   document.querySelector('.c-application-root'),
   AnalyticsInit(),
 )
+
 serviceWorker.register()
