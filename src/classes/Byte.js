@@ -5,9 +5,7 @@ class Byte {
   BYTE_LENGTH = 8
 
   constructor({ bytesData }) {
-    this.sourceData = bytesData
-    this.bytesData = this.prepareData()
-
+    this.prepareData(bytesData)
     this.decodeBits()
   }
 
@@ -16,9 +14,9 @@ class Byte {
 
     for (let bitIndex = 0; bitIndex < this.BYTE_LENGTH; bitIndex += 1) {
       let bit = new Bit({
-        ...bitIndex,
-        highByte: this.highByte,
-        lowByte: this.lowByte,
+        bitIndex,
+        highByte: this.sourceHighByte,
+        lowByte: this.sourceLowByte,
       })
 
       if (bit.isValid()) {
@@ -31,9 +29,10 @@ class Byte {
     return this.bits.length === this.BYTE_LENGTH
   }
 
-  prepareData() {
-    this.lowByte = this.sourceData[0]
-    this.highByte = this.sourceData[1]
+  prepareData(data) {
+    this.rawData = data
+    this.sourceLowByte = this.rawData[0]
+    this.sourceHighByte = this.rawData[1]
   }
 }
 

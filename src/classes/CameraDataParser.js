@@ -4,9 +4,7 @@ class CameraDataParser {
   SPLIT_DELIMITER = '# Finished Pretending To Print for fun!'
 
   constructor({ cameraData }) {
-    this.sourceData = cameraData
-    this.sourceCameraData = this.prepareData()
-
+    this.prepareData(cameraData)
     this.decodeImages()
   }
 
@@ -20,12 +18,11 @@ class CameraDataParser {
         this.images.push(image)
       }
     }
-
-    console.log(this.images)
   }
 
-  prepareData() {
-    return this.sourceData.split(this.SPLIT_DELIMITER)
+  prepareData(data) {
+    this.rawData = data
+    this.sourceCameraData = data.split(this.SPLIT_DELIMITER)
   }
 }
 
