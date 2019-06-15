@@ -7,50 +7,48 @@ import { trackPageView } from '../helpers/Analytics'
 const fn = () => {}
 
 const AppContext = React.createContext({
+  cameraData: null,
   ignoreBorder: false,
+  imageData: [],
   isLoading: true,
   pixelSize: 5,
-  processedImageData: [],
+  setCameraData: fn,
   setIgnoreBorder: fn,
+  setImageData: fn,
   setIsLoading: fn,
   setPixelSize: fn,
-  setProcessedImageData: fn,
-  setSourceImageData: fn,
-  sourceImageData: null,
 })
 
 const AppContextProvider = ({ children }) => {
+  const [cameraData, setCameraData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [ignoreBorder, setIgnoreBorder] = useState(true)
-  const [processedImageData, setProcessedImageData] = useState([])
-  const [sourceImageData, setSourceImageData] = useState(null)
+  const [imageData, setImageData] = useState([])
+  // eslint-disable-next-line no-magic-numbers
   const [pixelSize, setPixelSize] = useState(5)
 
   useEffect(trackPageView)
 
   useEffect(() => {
-    if (!sourceImageData) {
+    if (!cameraData) {
       return
     }
 
-    const cameraDataHelperOutput = new CameraDataParser({
-      cameraData: sourceImageData,
-    })
-
-    setProcessedImageData(cameraDataHelperOutput)
-  }, [sourceImageData])
+    const parsedImageData = new CameraDataParser({ cameraData })
+    setImageData(parsedImageData)
+  }, [cameraData])
 
   const contextValue = {
+    cameraData,
     ignoreBorder,
+    imageData,
     isLoading,
     pixelSize,
-    processedImageData,
+    setCameraData,
     setIgnoreBorder,
+    setImageData,
     setIsLoading,
     setPixelSize,
-    setProcessedImageData,
-    setSourceImageData,
-    sourceImageData,
   }
 
   return (

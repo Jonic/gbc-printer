@@ -9,16 +9,15 @@ const DataInput = () => {
     pixelSize,
     setIgnoreBorder,
     setPixelSize,
-    setSourceImageData,
+    setCameraData,
   } = useContext(AppContext)
-
   const dataElement = useRef(null)
 
   return (
     <form
       onSubmit={event => {
         event.preventDefault()
-        setSourceImageData(dataElement.current.value)
+        setCameraData(dataElement.current.value)
       }}
     >
       <textarea cols="50" defaultValue={testData} ref={dataElement} rows="15" />

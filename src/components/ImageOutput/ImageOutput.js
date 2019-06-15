@@ -4,11 +4,11 @@ import AppContext from '../../contexts/App'
 import Canvas from '../Canvas/Canvas'
 
 const DataInput = () => {
-  const { processedImageData } = useContext(AppContext)
+  const { imageData } = useContext(AppContext)
 
   return (
     <section>
-      {processedImageData.map(imageData => (
+      {imageData.map(imageData => (
         <Canvas imageData={imageData} key={imageData} />
       ))}
     </section>
