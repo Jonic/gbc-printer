@@ -9,13 +9,13 @@ const fn = () => {}
 const AppContext = React.createContext({
   cameraData: null,
   ignoreBorder: false,
-  imageData: [],
   isLoading: true,
+  parsedCameraData: [],
   pixelSize: 5,
   setCameraData: fn,
   setIgnoreBorder: fn,
-  setImageData: fn,
   setIsLoading: fn,
+  setParsedCameraData: fn,
   setPixelSize: fn,
 })
 
@@ -23,7 +23,7 @@ const AppContextProvider = ({ children }) => {
   const [cameraData, setCameraData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [ignoreBorder, setIgnoreBorder] = useState(true)
-  const [imageData, setImageData] = useState([])
+  const [parsedCameraData, setParsedCameraData] = useState(null)
   // eslint-disable-next-line no-magic-numbers
   const [pixelSize, setPixelSize] = useState(5)
 
@@ -34,20 +34,20 @@ const AppContextProvider = ({ children }) => {
       return
     }
 
-    const parsedImageData = new CameraDataParser({ cameraData })
-    setImageData(parsedImageData)
+    const cameraDataParserResult = new CameraDataParser({ cameraData })
+    setParsedCameraData(cameraDataParserResult)
   }, [cameraData])
 
   const contextValue = {
     cameraData,
     ignoreBorder,
-    imageData,
     isLoading,
+    parsedCameraData,
     pixelSize,
     setCameraData,
     setIgnoreBorder,
-    setImageData,
     setIsLoading,
+    setParsedCameraData,
     setPixelSize,
   }
 
