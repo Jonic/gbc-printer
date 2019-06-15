@@ -1,18 +1,14 @@
 import Bit from './Bit'
 
 class Byte {
-  constructor({ bytesData }) {
-    this.BYTE_LENGTH = 8
+  // eslint-disable-next-line no-magic-numbers
+  BYTE_LENGTH = 8
 
+  constructor({ bytesData }) {
     this.sourceData = bytesData
     this.bytesData = this.prepareData()
 
     this.decodeBits()
-  }
-
-  prepareData() {
-    this.lowByte = this.sourceData[0]
-    this.highByte = this.sourceData[1]
   }
 
   decodeBits() {
@@ -21,8 +17,8 @@ class Byte {
     for (let bitIndex = 0; bitIndex < this.BYTE_LENGTH; bitIndex += 1) {
       let bit = new Bit({
         ...bitIndex,
-        lowByte: this.lowByte,
         highByte: this.highByte,
+        lowByte: this.lowByte,
       })
 
       if (bit.isValid()) {
@@ -33,6 +29,11 @@ class Byte {
 
   isValid() {
     return this.bits.length === this.BYTE_LENGTH
+  }
+
+  prepareData() {
+    this.lowByte = this.sourceData[0]
+    this.highByte = this.sourceData[1]
   }
 }
 

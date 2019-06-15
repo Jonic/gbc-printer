@@ -48,21 +48,14 @@
 import Tile from './Tile'
 
 class Image {
-  constructor({ imageData }) {
-    this.MIN_TILES_LENGTH = 360
+  // eslint-disable-next-line no-magic-numbers
+  MIN_TILES_LENGTH = 360
 
+  constructor({ imageData }) {
     this.sourceData = imageData
     this.imageData = this.prepareData()
 
     this.decodeTiles()
-  }
-
-  prepareData() {
-    return this.sourceData.split('\n').filter(this.sanitiseDatum)
-  }
-
-  sanitiseDatum(datum) {
-    return datum.length > 1 && !/!|#/.test(datum)
   }
 
   decodeTiles() {
@@ -79,6 +72,14 @@ class Image {
 
   isValid() {
     return this.tiles.length >= this.MIN_TILES_LENGTH
+  }
+
+  prepareData() {
+    return this.sourceData.split('\n').filter(this.sanitiseDatum)
+  }
+
+  sanitiseDatum(datum) {
+    return datum.length > 1 && !/!|#/.test(datum)
   }
 }
 

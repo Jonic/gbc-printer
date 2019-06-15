@@ -3,16 +3,14 @@ import chunk from 'chunk'
 import hexToBinary from 'hex-to-binary'
 
 class Tile {
+  // eslint-disable-next-line no-magic-numbers
+  MIN_BYTES_LENGTH = 8
+
   constructor({ tileData }) {
-    this.MIN_BYTES_LENGTH = 8
     this.sourceData = tileData
     this.tileData = this.prepareData()
 
     this.decodeBytes()
-  }
-
-  prepareData() {
-    return this.sourceData.split(' ').map(hexToBinary)
   }
 
   decodeBytes() {
@@ -30,6 +28,10 @@ class Tile {
 
   isValid() {
     return this.bytes.length === this.MIN_BYTES_LENGTH
+  }
+
+  prepareData() {
+    return this.sourceData.split(' ').map(hexToBinary)
   }
 }
 

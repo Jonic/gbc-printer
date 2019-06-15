@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import CameraDataParser from '../classes/CameraDataParser'
 import PropTypes from 'prop-types'
-import { cameraDataProcess } from '../helpers/CameraData'
 import { trackPageView } from '../helpers/Analytics'
 
 const fn = () => {}
@@ -33,7 +33,10 @@ const AppContextProvider = ({ children }) => {
       return
     }
 
-    const cameraDataHelperOutput = cameraDataProcess(sourceImageData)
+    const cameraDataHelperOutput = new CameraDataParser({
+      cameraData: sourceImageData,
+    })
+
     setProcessedImageData(cameraDataHelperOutput)
   }, [sourceImageData])
 
