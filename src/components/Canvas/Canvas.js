@@ -5,12 +5,17 @@ import { CanvasDrawImage } from '../../helpers/Canvas'
 import PropTypes from 'prop-types'
 
 const Canvas = ({ imageData }) => {
-  const { pixelSize } = useContext(AppContext)
+  const { ignoreBorder, pixelSize } = useContext(AppContext)
   const imageCanvas = useRef(null)
 
   const tileSize = 8
-  const tilesX = 20
-  const tilesY = 18
+  let tilesX = 20
+  let tilesY = 18
+
+  if (ignoreBorder) {
+    tilesX -= 4
+    tilesY -= 4
+  }
 
   const canvasHeight = tilesY * tileSize * pixelSize
   const canvasWidth = tilesX * tileSize * pixelSize
@@ -18,11 +23,12 @@ const Canvas = ({ imageData }) => {
   useEffect(() => {
     imageCanvas &&
       CanvasDrawImage({
+        ignoreBorder,
         imageCanvas,
         imageData,
         pixelSize,
       })
-  }, [imageCanvas, imageData, pixelSize])
+  }, [ignoreBorder, imageCanvas, imageData, pixelSize])
 
   return <canvas height={canvasHeight} ref={imageCanvas} width={canvasWidth} />
 }

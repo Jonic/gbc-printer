@@ -4,7 +4,9 @@ import AppContext from '../../contexts/App'
 import testData from '../../config/testData'
 
 const DataInput = () => {
-  const { setIgnoreBorder, setSourceImageData } = useContext(AppContext)
+  const { ignoreBorder, setIgnoreBorder, setSourceImageData } = useContext(
+    AppContext,
+  )
 
   const dataElement = useRef(null)
 
@@ -18,10 +20,10 @@ const DataInput = () => {
       <textarea cols="50" defaultValue={testData} ref={dataElement} rows="15" />
       <p>
         <input
-          onChange={event => setIgnoreBorder(event.value)}
+          onChange={event => setIgnoreBorder(event.target.checked)}
           type="checkbox"
         />
-        Ignore Borders?
+        Ignore Borders? ({ignoreBorder ? 'Yes' : 'No'})
       </p>
       <button>DO IT</button>
     </form>
