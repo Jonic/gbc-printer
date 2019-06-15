@@ -1,15 +1,18 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 
 import AppContext from '../../contexts/App'
+import Canvas from '../Canvas/Canvas'
 
 const DataInput = () => {
   const { processedImageData } = useContext(AppContext)
 
-  useEffect(() => {
-    console.log({ processedImageData })
-  }, [processedImageData])
-
-  return <section>{processedImageData}</section>
+  return (
+    <section>
+      {processedImageData.map(imageData => (
+        <Canvas imageData={imageData} key={imageData} />
+      ))}
+    </section>
+  )
 }
 
 export default DataInput
