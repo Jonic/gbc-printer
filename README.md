@@ -1,6 +1,6 @@
 # GBC Printer
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cc602651-0660-4e9e-acae-c0e765f22ae1/deploy-status)](https://app.netlify.com/sites/laughing-lamarr-340367/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc602651-0660-4e9e-acae-c0e765f22ae1/deploy-status)](https://app.netlify.com/sites/gbc-printer/deploys)
 &nbsp;
 [![CircleCI](https://circleci.com/gh/Jonic/gbc-printer.svg?style=svg)](https://circleci.com/gh/Jonic/gbc-printer)
 &nbsp;
