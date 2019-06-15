@@ -43,57 +43,63 @@
   ]
 */
 
-export const cameraDataDecode = image => {
-  return image
+import hexToBinary from 'hex-to-binary'
+
+const SPLIT_DELIMITER = '# Finished Pretending To Print for fun!'
+
+export const cameraDataDecodeBytes = (loByte, hiByte) => {
+  const decodedBits = []
+
+  for (let bitIndex = 0; bitIndex < loByte.length; bitIndex += 1) {
+    let loBit = loByte[bitIndex]
+    let hiBit = hiByte[bitIndex]
+    // eslint-disable-next-line no-bitwise
+    decodedBits.push((hiBit << 1) | loBit)
+  }
+
+  return decodedBits
+}
+
+export const cameraDataDecodeTile = tile => {
+  const bytes = tile.split(' ').map(byte => hexToBinary(byte))
+  const decodedBytes = []
+
+  for (let byteIndex = 0; byteIndex < bytes.length - 1; byteIndex += 2) {
+    let loByte = bytes[byteIndex]
+    let hiByte = bytes[byteIndex + 1]
+    decodedBytes.push(cameraDataDecodeBytes(loByte, hiByte))
+  }
+
+  return decodedBytes
 }
 
 export const cameraDataProcess = data => {
-  const images = cameraDataSanitise(data)
-  const proccessedImages = []
+  const images = cameraDataSplit(data)
+  const decodedImages = []
 
   for (let image of images) {
-    proccessedImages.push(cameraDataDecode(image))
+    let tiles = image.split('\n').filter(cameraDataValidateTile)
+
+    if (!tiles.length) {
+      continue
+    }
+
+    let decodedImage = []
+
+    decodedImage = tiles.map(cameraDataDecodeTile)
+    decodedImages.push(decodedImage)
   }
 
-  return proccessedImages
+  return decodedImages
 }
 
-export const cameraDataSanitise = data => {
-  let imagesArray = []
-  let imagesArrayIndex = 0
-  let lines = data.split(/\n/)
+export const cameraDataSplit = data => data.split(SPLIT_DELIMITER).slice(0, -1)
 
-  imagesArray.push([])
-
-  for (let line of lines) {
-    if (!line.length) {
-      continue
-    }
-
-    if (line.indexOf('Finished') > -1) {
-      imagesArrayIndex += 1
-      imagesArray.push([])
-      continue
-    }
-
-    if (/!|#/.test(line)) {
-      continue
-    }
-
-    if (line.indexOf(' -> ') > -1) {
-      line = line.split(' -> ')[1]
-    }
-
-    imagesArray[imagesArrayIndex].push(line.split(' '))
-  }
-
-  return imagesArray
-}
+export const cameraDataValidateTile = tile =>
+  tile.length > 1 && !/!|#/.test(tile)
 
 const CameraDataHelper = {
-  cameraDataDecode,
   cameraDataProcess,
-  cameraDataSanitise,
 }
 
 export default CameraDataHelper
