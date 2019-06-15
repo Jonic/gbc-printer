@@ -15,6 +15,7 @@
   "homepage": "https://gbc-printer.100yen.co.uk",
   "dependencies": {
     "classnames": "2.2.6",
+    "hex-to-binary": "^1.0.1",
     "iotacss": "1.6.0",
     "node-sass": "4.12.0",
     "prop-types": "15.7.2",
