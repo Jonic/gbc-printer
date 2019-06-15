@@ -36,7 +36,7 @@ const ImageCanvas = ({ imageData }) => {
 }
 
 ImageCanvas.propTypes = {
-  imageData: PropTypes.array.isRequired,
+  imageData: PropTypes.object.isRequired,
 }
 
 export default ImageCanvas
