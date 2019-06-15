@@ -15,12 +15,8 @@ const App = () => {
     <AppContextProvider>
       <main className={cAppClassNames}>
         <h1 className="c-app__title">Gameboy Camera Printer</h1>
-        <div>
-          <DataInput />
-        </div>
-        <div>
-          <ImageOutput />
-        </div>
+        <DataInput />
+        <ImageOutput />
       </main>
     </AppContextProvider>
   )
