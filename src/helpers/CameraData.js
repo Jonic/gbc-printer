@@ -74,29 +74,25 @@ export const cameraDataDecodeTile = tile => {
 }
 
 export const cameraDataProcess = data => {
-  const images = cameraDataSplit(data)
+  const images = data.split(SPLIT_DELIMITER)
   const decodedImages = []
 
   for (let image of images) {
-    let tiles = image.split('\n').filter(cameraDataValidateTile)
+    let tiles = image
+      .split('\n')
+      .filter(tile => tile.length > 1 && !/!|#/.test(tile))
 
     if (!tiles.length) {
       continue
     }
 
     let decodedImage = []
-
     decodedImage = tiles.map(cameraDataDecodeTile)
     decodedImages.push(decodedImage)
   }
 
   return decodedImages
 }
-
-export const cameraDataSplit = data => data.split(SPLIT_DELIMITER).slice(0, -1)
-
-export const cameraDataValidateTile = tile =>
-  tile.length > 1 && !/!|#/.test(tile)
 
 const CameraDataHelper = {
   cameraDataProcess,
