@@ -7,27 +7,41 @@ import { trackPageView } from '../helpers/Analytics'
 const fn = () => {}
 
 const AppContext = React.createContext({
-  imageData: null,
+  ignoreBorder: false,
   isLoading: true,
-  setImageData: fn,
+  processedImageData: [],
+  setIgnoreBorder: fn,
   setIsLoading: fn,
+  setProcessedImageData: fn,
+  setSourceImageData: fn,
+  sourceImageData: null,
 })
 
 const AppContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
+  const [ignoreBorder, setIgnoreBorder] = useState(false)
   const [processedImageData, setProcessedImageData] = useState([])
-  const [sourceImageData, setSourceImageData] = useState('')
+  const [sourceImageData, setSourceImageData] = useState(null)
 
-  useEffect(() => trackPageView(), [])
+  const pixelSize = 4
+
+  useEffect(trackPageView)
 
   useEffect(() => {
+    if (!sourceImageData) {
+      return
+    }
+
     const cameraDataHelperOutput = cameraDataProcess(sourceImageData)
     setProcessedImageData(cameraDataHelperOutput)
   }, [sourceImageData])
 
   const contextValue = {
+    ignoreBorder,
     isLoading,
+    pixelSize,
     processedImageData,
+    setIgnoreBorder,
     setIsLoading,
     setProcessedImageData,
     setSourceImageData,
