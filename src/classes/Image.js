@@ -46,22 +46,23 @@
 */
 
 import Tile from './Tile'
+import uuidv4 from 'uuid/v4'
 
 class Image {
   // eslint-disable-next-line no-magic-numbers
   MIN_TILES_LENGTH = 360
 
   constructor({ imageData }) {
-    this.sourceData = imageData
-    this.imageData = this.prepareData()
-
+    this.prepareData(imageData)
     this.decodeTiles()
+
+    this.uuid = uuidv4()
   }
 
   decodeTiles() {
     this.tiles = []
 
-    for (let tileData of this.imageData) {
+    for (let tileData of this.sourceImageData) {
       let tile = new Tile({ tileData })
 
       if (tile.isValid()) {
@@ -74,8 +75,9 @@ class Image {
     return this.tiles.length >= this.MIN_TILES_LENGTH
   }
 
-  prepareData() {
-    return this.sourceData.split('\n').filter(this.sanitiseDatum)
+  prepareData(data) {
+    this.rawData = data
+    this.sourceImageData = data.split('\n').filter(this.sanitiseDatum)
   }
 
   sanitiseDatum(datum) {
