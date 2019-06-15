@@ -1,19 +1,30 @@
 import React, { useContext, useRef } from 'react'
 
 import AppContext from '../../contexts/App'
+import testData from '../../config/testData'
 
 const DataInput = () => {
-  const { setSourceImageData } = useContext(AppContext)
+  const { setIgnoreBorder, setSourceImageData } = useContext(AppContext)
 
-  const inputElement = useRef(null)
+  const dataElement = useRef(null)
 
   return (
-    <section>
-      <textarea ref={inputElement} />
-      <button onClick={() => setSourceImageData(inputElement.current.value)}>
-        DO IT
-      </button>
-    </section>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        setSourceImageData(dataElement.current.value)
+      }}
+    >
+      <textarea cols="50" defaultValue={testData} ref={dataElement} rows="15" />
+      <p>
+        <input
+          onChange={event => setIgnoreBorder(event.value)}
+          type="checkbox"
+        />
+        Ignore Borders?
+      </p>
+      <button>DO IT</button>
+    </form>
   )
 }
 
