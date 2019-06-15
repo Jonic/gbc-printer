@@ -9,9 +9,11 @@ const fn = () => {}
 const AppContext = React.createContext({
   ignoreBorder: false,
   isLoading: true,
+  pixelSize: 5,
   processedImageData: [],
   setIgnoreBorder: fn,
   setIsLoading: fn,
+  setPixelSize: fn,
   setProcessedImageData: fn,
   setSourceImageData: fn,
   sourceImageData: null,
@@ -19,11 +21,10 @@ const AppContext = React.createContext({
 
 const AppContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
-  const [ignoreBorder, setIgnoreBorder] = useState(false)
+  const [ignoreBorder, setIgnoreBorder] = useState(true)
   const [processedImageData, setProcessedImageData] = useState([])
   const [sourceImageData, setSourceImageData] = useState(null)
-
-  const pixelSize = 4
+  const [pixelSize, setPixelSize] = useState(5)
 
   useEffect(trackPageView)
 
@@ -43,6 +44,7 @@ const AppContextProvider = ({ children }) => {
     processedImageData,
     setIgnoreBorder,
     setIsLoading,
+    setPixelSize,
     setProcessedImageData,
     setSourceImageData,
     sourceImageData,

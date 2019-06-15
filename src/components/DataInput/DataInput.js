@@ -4,9 +4,13 @@ import AppContext from '../../contexts/App'
 import testData from '../../config/testData'
 
 const DataInput = () => {
-  const { ignoreBorder, setIgnoreBorder, setSourceImageData } = useContext(
-    AppContext,
-  )
+  const {
+    ignoreBorder,
+    pixelSize,
+    setIgnoreBorder,
+    setPixelSize,
+    setSourceImageData,
+  } = useContext(AppContext)
 
   const dataElement = useRef(null)
 
@@ -19,7 +23,18 @@ const DataInput = () => {
     >
       <textarea cols="50" defaultValue={testData} ref={dataElement} rows="15" />
       <p>
+        Set Pixel Size:
         <input
+          defaultValue={pixelSize}
+          max="20"
+          min="1"
+          onChange={event => setPixelSize(event.target.value)}
+          type="number"
+        />
+      </p>
+      <p>
+        <input
+          checked={ignoreBorder}
           onChange={event => setIgnoreBorder(event.target.checked)}
           type="checkbox"
         />
