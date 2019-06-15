@@ -3,7 +3,7 @@ import React, { useContext, useRef } from 'react'
 import AppContext from '../../contexts/App'
 import testData from '../../config/testData'
 
-const DataInput = () => {
+const CameraDataForm = () => {
   const {
     ignoreBorder,
     pixelSize,
@@ -44,4 +44,4 @@ const DataInput = () => {
   )
 }
 
-export default DataInput
+export default CameraDataForm
