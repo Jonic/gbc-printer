@@ -15,7 +15,7 @@ export const CanvasDrawImage = ({
   let tileX = 0
   let tileY = 0
 
-  for (let tile of imageData) {
+  for (let tile of imageData.tiles) {
     if (ignoreBorder) {
       if (
         tileX < 2 ||
@@ -41,17 +41,24 @@ export const CanvasDrawImage = ({
       tileYOffset -= TILE_SIZE * pixelSize * 2
     }
 
-    for (let bitY = 0; bitY < TILE_SIZE; bitY += 1) {
-      for (let bitX = 0; bitX < TILE_SIZE; bitX += 1) {
-        let bitValue = tile[bitY][bitX]
-        context.fillStyle = PIXEL_COLORS[bitValue]
+    let bitY = 0
+
+    for (let byte of tile.bytes) {
+      let bitX = 0
+
+      for (let bit of byte.bits) {
+        context.fillStyle = PIXEL_COLORS[bit.value]
         context.fillRect(
           tileXOffset + bitX * pixelSize,
           tileYOffset + bitY * pixelSize,
           pixelSize,
           pixelSize,
         )
+
+        bitX += 1
       }
+
+      bitY += 1
     }
 
     tileX += 1

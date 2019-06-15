@@ -10,8 +10,8 @@ exports[`<App /> Renders matches its snapshot 1`] = `
     >
       Gameboy Camera Printer
     </h1>
-    <DataInput />
-    <DataInput />
+    <CameraDataForm />
+    <ImagesList />
   </main>
 </AppContextProvider>
 `;

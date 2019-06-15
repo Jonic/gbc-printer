@@ -3,22 +3,21 @@ import React, { useContext, useRef } from 'react'
 import AppContext from '../../contexts/App'
 import testData from '../../config/testData'
 
-const DataInput = () => {
+const CameraDataForm = () => {
   const {
     ignoreBorder,
     pixelSize,
     setIgnoreBorder,
     setPixelSize,
-    setSourceImageData,
+    setCameraData,
   } = useContext(AppContext)
-
   const dataElement = useRef(null)
 
   return (
     <form
       onSubmit={event => {
         event.preventDefault()
-        setSourceImageData(dataElement.current.value)
+        setCameraData(dataElement.current.value)
       }}
     >
       <textarea cols="50" defaultValue={testData} ref={dataElement} rows="15" />
@@ -45,4 +44,4 @@ const DataInput = () => {
   )
 }
 
-export default DataInput
+export default CameraDataForm

@@ -14,6 +14,7 @@
   ],
   "homepage": "https://gbc-printer.100yen.co.uk",
   "dependencies": {
+    "chunk": "0.0.2",
     "classnames": "2.2.6",
     "hex-to-binary": "^1.0.1",
     "iotacss": "1.6.0",
@@ -22,7 +23,8 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-ga": "2.5.7",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "build": "react-scripts build",

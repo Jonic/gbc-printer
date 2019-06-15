@@ -4,7 +4,7 @@ import AppContext from '../../contexts/App'
 import { CanvasDrawImage } from '../../helpers/Canvas'
 import PropTypes from 'prop-types'
 
-const Canvas = ({ imageData }) => {
+const ImageCanvas = ({ imageData }) => {
   const { ignoreBorder, pixelSize } = useContext(AppContext)
   const imageCanvas = useRef(null)
 
@@ -13,7 +13,9 @@ const Canvas = ({ imageData }) => {
   let tilesY = 18
 
   if (ignoreBorder) {
+    // eslint-disable-next-line no-magic-numbers
     tilesX -= 4
+    // eslint-disable-next-line no-magic-numbers
     tilesY -= 4
   }
 
@@ -33,8 +35,8 @@ const Canvas = ({ imageData }) => {
   return <canvas height={canvasHeight} ref={imageCanvas} width={canvasWidth} />
 }
 
-Canvas.propTypes = {
+ImageCanvas.propTypes = {
   imageData: PropTypes.array.isRequired,
 }
 
-export default Canvas
+export default ImageCanvas
