@@ -1,7 +1,8 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 
 import AppContext from '../../contexts/App'
 import testData from '../../config/testData'
+import { trackImageRender } from '../../helpers/Analytics'
 
 const CameraDataForm = () => {
   const {
@@ -12,6 +13,8 @@ const CameraDataForm = () => {
     setCameraData,
   } = useContext(AppContext)
   const dataElement = useRef(null)
+
+  useEffect(trackImageRender)
 
   return (
     <form
