@@ -4,6 +4,7 @@ import AppContext, { AppContextProvider } from 'contexts/App'
 import React, { useContext, useEffect } from 'react'
 
 import CameraDataForm from './CameraDataForm/CameraDataForm'
+import DevModeToggle from './DevModeToggle/DevModeToggle'
 import ImagesList from './ImagesList/ImagesList'
 import classnames from 'classnames'
 import { trackPageView } from '../helpers/Analytics'
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <AppContextProvider>
       <main className={cAppClassNames}>
+        <DevModeToggle />
         <h1 className="c-app__title">Gameboy Camera Printer</h1>
         <CameraDataForm />
         <ImagesList />
