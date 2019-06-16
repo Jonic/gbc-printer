@@ -31,8 +31,9 @@ const CameraDataForm = () => {
           max="20"
           min="1"
           onChange={event => setPixelSize(event.target.value)}
-          type="number"
-        />
+          type="range"
+        />{' '}
+        {pixelSize}px
       </p>
       <p>
         <input
