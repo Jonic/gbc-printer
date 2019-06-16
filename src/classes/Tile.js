@@ -45,16 +45,16 @@ class Tile {
     })
   }
 
+  isBorderTileCheck() {
+    return (
+      this.ignoreBorder &&
+      SKIP_X_INDICES.indexOf(this.tileX) === -1 &&
+      SKIP_Y_INDICES.indexOf(this.tileY) === -1
+    )
+  }
+
   isValid() {
-    let isValid = this.bytes.length === MIN_BYTES_LENGTH
-
-    if (this.ignoreBorder) {
-      isValid =
-        SKIP_X_INDICES.indexOf(this.tileX) === -1 &&
-        SKIP_Y_INDICES.indexOf(this.tileY) === -1
-    }
-
-    return isValid
+    return this.bytes.length === MIN_BYTES_LENGTH
   }
 
   prepareData() {
