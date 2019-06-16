@@ -49,12 +49,12 @@ import Tile from './Tile'
 // import chunk from 'chunk'
 import uuidv4 from 'uuid/v4'
 
-class Image {
-  // eslint-disable-next-line no-magic-numbers
-  MIN_TILES_LENGTH = 360
-  // eslint-disable-next-line no-magic-numbers
-  TILE_X_INDEX_MAX = 20
+// eslint-disable-next-line no-magic-numbers
+const MIN_TILES_LENGTH = 360
+// eslint-disable-next-line no-magic-numbers
+const TILE_X_INDEX_MAX = 20
 
+class Image {
   constructor({ ignoreBorder, imageData, isDevMode }) {
     this.ignoreBorder = ignoreBorder
     this.isDevMode = isDevMode
@@ -72,34 +72,34 @@ class Image {
       return
     }
 
-    delete this.rawData
+    delete this.ignoreBorder
     delete this.imageData
+    delete this.isDevMode
+    delete this.rawData
+    delete this.tileX
+    delete this.tileY
   }
 
   decodeTiles() {
     this.tiles = []
 
-    this.initTileCounters()
+    this.tileCountersInit()
 
     for (let tileData of this.imageData) {
       let tile = new Tile({
         isDevMode: this.isDevMode,
         tileData,
-        tileX: this.tileX,
-        tileY: this.tileY,
       })
+
+      tile.tileX = this.tileX
+      tile.tileY = this.tileY
 
       if (tile.isValid()) {
         this.tiles.push(tile)
       }
 
-      this.updateTileCounters()
+      this.tileCountersUpdate()
     }
-  }
-
-  initTileCounters() {
-    this.tileX = 0
-    this.tileY = 0
   }
 
   isBorderTile(x, y) {
@@ -107,7 +107,7 @@ class Image {
   }
 
   isValid() {
-    return this.tiles.length >= this.MIN_TILES_LENGTH
+    return this.tiles.length >= MIN_TILES_LENGTH
   }
 
   prepareData() {
@@ -118,10 +118,15 @@ class Image {
     return datum.length > 1 && !/!|#/.test(datum)
   }
 
-  updateTileCounters() {
+  tileCountersInit() {
+    this.tileX = 0
+    this.tileY = 0
+  }
+
+  tileCountersUpdate() {
     this.tileX += 1
 
-    if (this.tileX === this.TILE_X_INDEX_MAX) {
+    if (this.tileX === TILE_X_INDEX_MAX) {
       this.tileX = 0
       this.tileY += 1
     }

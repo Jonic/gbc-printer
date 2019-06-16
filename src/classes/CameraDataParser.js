@@ -1,8 +1,8 @@
 import Image from './Image'
 
-class CameraDataParser {
-  SPLIT_DELIMITER = ' Finished Pretending To Print for fun!'
+const SPLIT_DELIMITER = ' Finished Pretending To Print for fun!'
 
+class CameraDataParser {
   constructor({ cameraData, ignoreBorder, isDevMode }) {
     this.ignoreBorder = ignoreBorder
     this.isDevMode = isDevMode
@@ -20,6 +20,8 @@ class CameraDataParser {
 
     delete this.rawData
     delete this.cameraData
+    delete this.ignoreBorder
+    delete this.isDevMode
   }
 
   decodeImages() {
@@ -39,7 +41,7 @@ class CameraDataParser {
   }
 
   prepareData() {
-    this.cameraData = this.rawData.split(this.SPLIT_DELIMITER)
+    this.cameraData = this.rawData.split(SPLIT_DELIMITER)
   }
 }
 

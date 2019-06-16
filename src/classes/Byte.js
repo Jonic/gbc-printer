@@ -1,9 +1,9 @@
 import Bit from './Bit'
 
-class Byte {
-  // eslint-disable-next-line no-magic-numbers
-  BYTE_LENGTH = 8
+// eslint-disable-next-line no-magic-numbers
+const BYTE_LENGTH = 8
 
+class Byte {
   constructor({ bytesData, isDevMode }) {
     this.isDevMode = isDevMode
     this.rawData = bytesData
@@ -19,13 +19,15 @@ class Byte {
     }
 
     delete this.bytesData
+    delete this.ignoreBorder
+    delete this.isDevMode
     delete this.rawData
   }
 
   decodeBits() {
     this.bits = []
 
-    for (let bitIndex = 0; bitIndex < this.BYTE_LENGTH; bitIndex += 1) {
+    for (let bitIndex = 0; bitIndex < BYTE_LENGTH; bitIndex += 1) {
       let bit = new Bit({
         bitIndex,
         bytesData: this.bytesData,
@@ -39,7 +41,7 @@ class Byte {
   }
 
   isValid() {
-    return this.bits.length === this.BYTE_LENGTH
+    return this.bits.length === BYTE_LENGTH
   }
 
   prepareData() {

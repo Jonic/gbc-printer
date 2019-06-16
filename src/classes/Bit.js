@@ -1,8 +1,8 @@
-class Bit {
-  // eslint-disable-next-line no-magic-numbers
-  HIGH_DECODED_BIT = 3
-  LOW_DECODED_BIT = 0
+// eslint-disable-next-line no-magic-numbers
+const HIGH_DECODED_BIT = 3
+const LOW_DECODED_BIT = 0
 
+class Bit {
   constructor({ bitIndex, bytesData, isDevMode }) {
     this.bitIndex = bitIndex
     this.isDevMode = isDevMode
@@ -19,6 +19,8 @@ class Bit {
     }
 
     delete this.bitIndex
+    delete this.ignoreBorder
+    delete this.isDevMode
     delete this.leftBit
     delete this.rawData
     delete this.rightBit
@@ -30,9 +32,7 @@ class Bit {
   }
 
   isValid() {
-    return (
-      this.value >= this.LOW_DECODED_BIT && this.value <= this.HIGH_DECODED_BIT
-    )
+    return this.value >= LOW_DECODED_BIT && this.value <= HIGH_DECODED_BIT
   }
 
   prepareData() {

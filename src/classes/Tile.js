@@ -2,10 +2,10 @@ import Byte from './Byte'
 import chunk from 'chunk'
 import hexToBinary from 'hex-to-binary'
 
-class Tile {
-  // eslint-disable-next-line no-magic-numbers
-  MIN_BYTES_LENGTH = 8
+// eslint-disable-next-line no-magic-numbers
+const MIN_BYTES_LENGTH = 8
 
+class Tile {
   constructor({ isDevMode, tileData, tileX, tileY }) {
     this.isDevMode = isDevMode
     this.rawData = tileData
@@ -23,6 +23,8 @@ class Tile {
     }
 
     delete this.rawData
+    delete this.ignoreBorder
+    delete this.isDevMode
     delete this.tileData
   }
 
@@ -43,7 +45,7 @@ class Tile {
   }
 
   isValid() {
-    return this.bytes.length === this.MIN_BYTES_LENGTH
+    return this.bytes.length === MIN_BYTES_LENGTH
   }
 
   prepareData() {
