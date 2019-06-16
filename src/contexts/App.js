@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import CameraDataParser from '../classes/CameraDataParser'
 import PropTypes from 'prop-types'
-import { trackPageView } from '../helpers/Analytics'
 
 const fn = () => {}
 
@@ -26,8 +25,6 @@ const AppContextProvider = ({ children }) => {
   const [parsedCameraData, setParsedCameraData] = useState(null)
   // eslint-disable-next-line no-magic-numbers
   const [pixelSize, setPixelSize] = useState(5)
-
-  useEffect(trackPageView)
 
   useEffect(() => {
     if (!cameraData) {
