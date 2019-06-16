@@ -37,12 +37,13 @@ const AppContextProvider = ({ children }) => {
 
     const cameraDataParserResult = new CameraDataParser({
       cameraData,
+      ignoreBorder,
       isDevMode,
     })
 
     trackCameraDataProcess()
     setParsedCameraData(cameraDataParserResult)
-  }, [cameraData, isDevMode])
+  }, [cameraData, ignoreBorder, isDevMode])
 
   const contextValue = {
     cameraData,

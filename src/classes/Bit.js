@@ -4,8 +4,8 @@ class Bit {
   LOW_DECODED_BIT = 0
 
   constructor({ bitIndex, bytesData, isDevMode }) {
-    this.isDevMode = isDevMode
     this.bitIndex = bitIndex
+    this.isDevMode = isDevMode
     this.rawData = bytesData
 
     this.prepareData()

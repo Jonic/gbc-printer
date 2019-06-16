@@ -3,7 +3,8 @@ import Image from './Image'
 class CameraDataParser {
   SPLIT_DELIMITER = ' Finished Pretending To Print for fun!'
 
-  constructor({ cameraData, isDevMode }) {
+  constructor({ cameraData, ignoreBorder, isDevMode }) {
+    this.ignoreBorder = ignoreBorder
     this.isDevMode = isDevMode
     this.rawData = cameraData
 
@@ -26,6 +27,7 @@ class CameraDataParser {
 
     for (let imageData of this.cameraData) {
       let image = new Image({
+        ignoreBorder: this.ignoreBorder,
         imageData,
         isDevMode: this.isDevMode,
       })

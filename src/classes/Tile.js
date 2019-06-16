@@ -6,9 +6,11 @@ class Tile {
   // eslint-disable-next-line no-magic-numbers
   MIN_BYTES_LENGTH = 8
 
-  constructor({ tileData, isDevMode }) {
+  constructor({ isDevMode, tileData, tileX, tileY }) {
     this.isDevMode = isDevMode
     this.rawData = tileData
+    this.tileX = tileX
+    this.tileY = tileY
 
     this.prepareData(tileData)
     this.decodeBytes()

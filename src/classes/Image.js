@@ -46,19 +46,24 @@
 */
 
 import Tile from './Tile'
+// import chunk from 'chunk'
 import uuidv4 from 'uuid/v4'
 
 class Image {
   // eslint-disable-next-line no-magic-numbers
   MIN_TILES_LENGTH = 360
+  // eslint-disable-next-line no-magic-numbers
+  TILE_X_INDEX_MAX = 20
 
-  constructor({ imageData, isDevMode }) {
+  constructor({ ignoreBorder, imageData, isDevMode }) {
+    this.ignoreBorder = ignoreBorder
     this.isDevMode = isDevMode
     this.rawData = imageData
     this.uuid = uuidv4()
 
     this.prepareData()
     this.decodeTiles()
+    // this.parseDecodedTiles()
     this.cleanUpData()
   }
 
@@ -74,16 +79,31 @@ class Image {
   decodeTiles() {
     this.tiles = []
 
+    this.initTileCounters()
+
     for (let tileData of this.imageData) {
       let tile = new Tile({
-        tileData,
         isDevMode: this.isDevMode,
+        tileData,
+        tileX: this.tileX,
+        tileY: this.tileY,
       })
 
       if (tile.isValid()) {
         this.tiles.push(tile)
       }
+
+      this.updateTileCounters()
     }
+  }
+
+  initTileCounters() {
+    this.tileX = 0
+    this.tileY = 0
+  }
+
+  isBorderTile(x, y) {
+    return true
   }
 
   isValid() {
@@ -96,6 +116,15 @@ class Image {
 
   sanitiseDatum(datum) {
     return datum.length > 1 && !/!|#/.test(datum)
+  }
+
+  updateTileCounters() {
+    this.tileX += 1
+
+    if (this.tileX === this.TILE_X_INDEX_MAX) {
+      this.tileX = 0
+      this.tileY += 1
+    }
   }
 }
 
