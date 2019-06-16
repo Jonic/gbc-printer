@@ -9,11 +9,13 @@ const fn = () => {}
 const AppContext = React.createContext({
   cameraData: null,
   ignoreBorder: false,
+  isDevMode: false,
   isLoading: true,
   parsedCameraData: [],
   pixelSize: 5,
   setCameraData: fn,
   setIgnoreBorder: fn,
+  setIsDevMode: fn,
   setIsLoading: fn,
   setParsedCameraData: fn,
   setPixelSize: fn,
@@ -21,6 +23,7 @@ const AppContext = React.createContext({
 
 const AppContextProvider = ({ children }) => {
   const [cameraData, setCameraData] = useState(null)
+  const [isDevMode, setIsDevMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [ignoreBorder, setIgnoreBorder] = useState(true)
   const [parsedCameraData, setParsedCameraData] = useState(null)
@@ -32,19 +35,25 @@ const AppContextProvider = ({ children }) => {
       return
     }
 
-    const cameraDataParserResult = new CameraDataParser({ cameraData })
+    const cameraDataParserResult = new CameraDataParser({
+      cameraData,
+      isDevMode,
+    })
+
     trackCameraDataProcess()
     setParsedCameraData(cameraDataParserResult)
-  }, [cameraData])
+  }, [cameraData, isDevMode])
 
   const contextValue = {
     cameraData,
     ignoreBorder,
+    isDevMode,
     isLoading,
     parsedCameraData,
     pixelSize,
     setCameraData,
     setIgnoreBorder,
+    setIsDevMode,
     setIsLoading,
     setParsedCameraData,
     setPixelSize,
