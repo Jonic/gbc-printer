@@ -7,6 +7,28 @@ const init = () => {
   ReactGA.initialize(config.id)
 }
 
+const trackCameraDataProcess = () => {
+  const event = {
+    category: 'Data',
+    action: 'Camera Data Process',
+  }
+
+  console.log('Data#trackCameraDataProcess', event) // eslint-disable-line no-console
+
+  ReactGA.event(event)
+}
+
+const trackImageRender = () => {
+  const event = {
+    category: 'Image',
+    action: 'Image Render',
+  }
+
+  console.log('Image#trackImageRender', event) // eslint-disable-line no-console
+
+  ReactGA.event(event)
+}
+
 const trackPageView = () => {
   console.log('Analytics#trackPageView') // eslint-disable-line no-console
 
@@ -14,16 +36,4 @@ const trackPageView = () => {
   ReactGA.pageview(window.location.pathname)
 }
 
-const trackPlay = sample => {
-  const event = {
-    category: 'Audio',
-    action: 'Sample Played',
-    label: sample,
-  }
-
-  console.log('Analytics#trackPlay', event) // eslint-disable-line no-console
-
-  ReactGA.event(event)
-}
-
-export { init, trackPageView, trackPlay }
+export { init, trackCameraDataProcess, trackImageRender, trackPageView }
