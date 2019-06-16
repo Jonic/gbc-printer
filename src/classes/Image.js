@@ -46,7 +46,6 @@
 */
 
 import Tile from './Tile'
-// import chunk from 'chunk'
 import uuidv4 from 'uuid/v4'
 
 // eslint-disable-next-line no-magic-numbers
@@ -102,7 +101,9 @@ class Image {
     return this.tiles.length >= MIN_TILES_LENGTH
   }
 
-  parseDecodedTiles() {}
+  parseDecodedTiles() {
+    this.pixels = []
+  }
 
   prepareData() {
     this.imageData = this.rawData.split('\n').filter(this.sanitiseDatum)
