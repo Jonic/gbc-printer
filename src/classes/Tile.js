@@ -14,6 +14,7 @@ class Tile {
 
     this.prepareData(tileData)
     this.decodeBytes()
+    this.validateBytes()
     this.cleanUpData()
   }
 
@@ -29,19 +30,12 @@ class Tile {
   }
 
   decodeBytes() {
-    this.bytes = []
-
-    // eslint-disable-next-line no-magic-numbers
-    for (let bytesData of chunk(this.tileData, 2)) {
-      let byte = new Byte({
-        bytesData,
+    this.bytes = chunk(this.tileData, 2).map(bytesData => {
+      return new Byte({
+        bytesData: bytesData,
         isDevMode: this.isDevMode,
       })
-
-      if (byte.isValid()) {
-        this.bytes.push(byte)
-      }
-    }
+    })
   }
 
   isValid() {
@@ -50,6 +44,10 @@ class Tile {
 
   prepareData() {
     this.tileData = this.rawData.split(' ').map(hexToBinary)
+  }
+
+  validateBytes() {
+    this.bytes = this.bytes.filter(byte => byte.isValid())
   }
 }
 

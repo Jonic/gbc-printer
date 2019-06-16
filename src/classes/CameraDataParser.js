@@ -10,6 +10,7 @@ class CameraDataParser {
 
     this.prepareData()
     this.decodeImages()
+    this.validateImages()
     this.cleanUpData()
   }
 
@@ -25,23 +26,21 @@ class CameraDataParser {
   }
 
   decodeImages() {
-    this.images = []
-
-    for (let imageData of this.cameraData) {
-      let image = new Image({
+    this.images = this.cameraData.map(imageData => {
+      return new Image({
         ignoreBorder: this.ignoreBorder,
-        imageData,
+        imageData: imageData,
         isDevMode: this.isDevMode,
       })
-
-      if (image.isValid()) {
-        this.images.push(image)
-      }
-    }
+    })
   }
 
   prepareData() {
     this.cameraData = this.rawData.split(SPLIT_DELIMITER)
+  }
+
+  validateImages() {
+    this.images = this.images.filter(image => image.isValid())
   }
 }
 

@@ -62,7 +62,9 @@ class Image {
     this.uuid = uuidv4()
 
     this.prepareData()
+    this.tileCountersInit()
     this.decodeTiles()
+    this.validateTiles()
     // this.parseDecodedTiles()
     this.cleanUpData()
   }
@@ -81,25 +83,18 @@ class Image {
   }
 
   decodeTiles() {
-    this.tiles = []
-
-    this.tileCountersInit()
-
-    for (let tileData of this.imageData) {
+    this.tiles = this.imageData.map(tileData => {
       let tile = new Tile({
         isDevMode: this.isDevMode,
-        tileData,
+        tileData: tileData,
       })
-
       tile.tileX = this.tileX
       tile.tileY = this.tileY
 
-      if (tile.isValid()) {
-        this.tiles.push(tile)
-      }
-
       this.tileCountersUpdate()
-    }
+
+      return tile
+    })
   }
 
   isBorderTile(x, y) {
@@ -130,6 +125,10 @@ class Image {
       this.tileX = 0
       this.tileY += 1
     }
+  }
+
+  validateTiles() {
+    this.tiles = this.tiles.filter(tile => tile.isValid())
   }
 }
 
