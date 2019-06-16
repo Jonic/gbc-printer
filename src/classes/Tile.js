@@ -6,17 +6,33 @@ class Tile {
   // eslint-disable-next-line no-magic-numbers
   MIN_BYTES_LENGTH = 8
 
-  constructor({ tileData }) {
+  constructor({ tileData, isDevMode }) {
+    this.isDevMode = isDevMode
+    this.rawData = tileData
+
     this.prepareData(tileData)
     this.decodeBytes()
+    this.cleanUpData()
+  }
+
+  cleanUpData() {
+    if (this.isDevMode) {
+      return
+    }
+
+    delete this.rawData
+    delete this.tileData
   }
 
   decodeBytes() {
     this.bytes = []
 
     // eslint-disable-next-line no-magic-numbers
-    for (let bytesData of chunk(this.sourceTileData, 2)) {
-      let byte = new Byte({ bytesData })
+    for (let bytesData of chunk(this.tileData, 2)) {
+      let byte = new Byte({
+        bytesData,
+        isDevMode: this.isDevMode,
+      })
 
       if (byte.isValid()) {
         this.bytes.push(byte)
@@ -28,9 +44,8 @@ class Tile {
     return this.bytes.length === this.MIN_BYTES_LENGTH
   }
 
-  prepareData(data) {
-    this.rawData = data
-    this.sourceTileData = data.split(' ').map(hexToBinary)
+  prepareData() {
+    this.tileData = this.rawData.split(' ').map(hexToBinary)
   }
 }
 

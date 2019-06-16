@@ -52,18 +52,33 @@ class Image {
   // eslint-disable-next-line no-magic-numbers
   MIN_TILES_LENGTH = 360
 
-  constructor({ imageData }) {
-    this.prepareData(imageData)
-    this.decodeTiles()
-
+  constructor({ imageData, isDevMode }) {
+    this.isDevMode = isDevMode
+    this.rawData = imageData
     this.uuid = uuidv4()
+
+    this.prepareData()
+    this.decodeTiles()
+    this.cleanUpData()
+  }
+
+  cleanUpData() {
+    if (this.isDevMode) {
+      return
+    }
+
+    delete this.rawData
+    delete this.imageData
   }
 
   decodeTiles() {
     this.tiles = []
 
-    for (let tileData of this.sourceImageData) {
-      let tile = new Tile({ tileData })
+    for (let tileData of this.imageData) {
+      let tile = new Tile({
+        tileData,
+        isDevMode: this.isDevMode,
+      })
 
       if (tile.isValid()) {
         this.tiles.push(tile)
@@ -75,9 +90,8 @@ class Image {
     return this.tiles.length >= this.MIN_TILES_LENGTH
   }
 
-  prepareData(data) {
-    this.rawData = data
-    this.sourceImageData = data.split('\n').filter(this.sanitiseDatum)
+  prepareData() {
+    this.imageData = this.rawData.split('\n').filter(this.sanitiseDatum)
   }
 
   sanitiseDatum(datum) {

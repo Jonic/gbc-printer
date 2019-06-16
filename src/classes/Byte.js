@@ -4,9 +4,22 @@ class Byte {
   // eslint-disable-next-line no-magic-numbers
   BYTE_LENGTH = 8
 
-  constructor({ bytesData }) {
-    this.prepareData(bytesData)
+  constructor({ bytesData, isDevMode }) {
+    this.isDevMode = isDevMode
+    this.rawData = bytesData
+
+    this.prepareData()
     this.decodeBits()
+    this.cleanUpData()
+  }
+
+  cleanUpData() {
+    if (this.isDevMode) {
+      return
+    }
+
+    delete this.bytesData
+    delete this.rawData
   }
 
   decodeBits() {
@@ -15,8 +28,8 @@ class Byte {
     for (let bitIndex = 0; bitIndex < this.BYTE_LENGTH; bitIndex += 1) {
       let bit = new Bit({
         bitIndex,
-        highByte: this.sourceHighByte,
-        lowByte: this.sourceLowByte,
+        bytesData: this.bytesData,
+        isDevMode: this.isDevMode,
       })
 
       if (bit.isValid()) {
@@ -29,10 +42,8 @@ class Byte {
     return this.bits.length === this.BYTE_LENGTH
   }
 
-  prepareData(data) {
-    this.rawData = data
-    this.sourceLowByte = this.rawData[0]
-    this.sourceHighByte = this.rawData[1]
+  prepareData() {
+    this.bytesData = this.rawData
   }
 }
 
