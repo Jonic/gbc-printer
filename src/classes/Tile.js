@@ -4,9 +4,14 @@ import hexToBinary from 'hex-to-binary'
 
 // eslint-disable-next-line no-magic-numbers
 const MIN_BYTES_LENGTH = 8
+// eslint-disable-next-line no-magic-numbers
+const SKIP_X_INDICES = [0, 1, 18, 19]
+// eslint-disable-next-line no-magic-numbers
+const SKIP_Y_INDICES = [0, 1, 16, 17]
 
 class Tile {
-  constructor({ isDevMode, tileData, tileX, tileY }) {
+  constructor({ ignoreBorder, isDevMode, tileData, tileX, tileY }) {
+    this.ignoreBorder = ignoreBorder
     this.isDevMode = isDevMode
     this.rawData = tileData
     this.tileX = tileX
@@ -27,6 +32,8 @@ class Tile {
     delete this.ignoreBorder
     delete this.isDevMode
     delete this.tileData
+    delete this.tileX
+    delete this.tileY
   }
 
   decodeBytes() {
@@ -39,7 +46,15 @@ class Tile {
   }
 
   isValid() {
-    return this.bytes.length === MIN_BYTES_LENGTH
+    let isValid = this.bytes.length === MIN_BYTES_LENGTH
+
+    if (this.ignoreBorder) {
+      isValid =
+        SKIP_X_INDICES.indexOf(this.tileX) === -1 &&
+        SKIP_Y_INDICES.indexOf(this.tileY) === -1
+    }
+
+    return isValid
   }
 
   prepareData() {

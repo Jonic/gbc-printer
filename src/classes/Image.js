@@ -65,7 +65,7 @@ class Image {
     this.tileCountersInit()
     this.decodeTiles()
     this.validateTiles()
-    // this.parseDecodedTiles()
+    this.parseDecodedTiles()
     this.cleanUpData()
   }
 
@@ -85,11 +85,12 @@ class Image {
   decodeTiles() {
     this.tiles = this.imageData.map(tileData => {
       let tile = new Tile({
+        ignoreBorder: this.ignoreBorder,
         isDevMode: this.isDevMode,
         tileData: tileData,
+        tileX: this.tileX,
+        tileY: this.tileY,
       })
-      tile.tileX = this.tileX
-      tile.tileY = this.tileY
 
       this.tileCountersUpdate()
 
@@ -97,13 +98,11 @@ class Image {
     })
   }
 
-  isBorderTile(x, y) {
-    return true
-  }
-
   isValid() {
     return this.tiles.length >= MIN_TILES_LENGTH
   }
+
+  parseDecodedTiles() {}
 
   prepareData() {
     this.imageData = this.rawData.split('\n').filter(this.sanitiseDatum)
