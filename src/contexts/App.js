@@ -1,48 +1,43 @@
+/* eslint-disable no-magic-numbers */
 import React, { useEffect, useState } from 'react'
 
-import CameraDataParser from '../classes/CameraDataParser'
+import Printer from '../classes/Printer'
 import PropTypes from 'prop-types'
 import { trackCameraDataProcess } from '../helpers/Analytics'
 
 const fn = () => {}
 
 const AppContext = React.createContext({
-  cameraData: null,
-  ignoreBorder: false,
+  cameraData: '',
+  ignoreBorder: true,
   isDevMode: false,
   isLoading: true,
-  parsedCameraData: [],
   pixelSize: 5,
+  printedImages: [],
   setCameraData: fn,
   setIgnoreBorder: fn,
   setIsDevMode: fn,
   setIsLoading: fn,
-  setParsedCameraData: fn,
   setPixelSize: fn,
+  setPrintedImages: fn,
 })
 
 const AppContextProvider = ({ children }) => {
-  const [cameraData, setCameraData] = useState(null)
+  const [cameraData, setCameraData] = useState('')
+  const [ignoreBorder, setIgnoreBorder] = useState(true)
   const [isDevMode, setIsDevMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [ignoreBorder, setIgnoreBorder] = useState(true)
-  const [parsedCameraData, setParsedCameraData] = useState(null)
-  // eslint-disable-next-line no-magic-numbers
   const [pixelSize, setPixelSize] = useState(5)
+  const [printedImages, setPrintedImages] = useState([])
 
   useEffect(() => {
     if (!cameraData) {
       return
     }
 
-    const cameraDataParserResult = new CameraDataParser({
-      cameraData,
-      ignoreBorder,
-      isDevMode,
-    })
-
+    const printerData = new Printer({ cameraData, ignoreBorder })
     trackCameraDataProcess()
-    setParsedCameraData(cameraDataParserResult)
+    setPrintedImages(printerData.images)
   }, [cameraData, ignoreBorder, isDevMode])
 
   const contextValue = {
@@ -50,14 +45,14 @@ const AppContextProvider = ({ children }) => {
     ignoreBorder,
     isDevMode,
     isLoading,
-    parsedCameraData,
     pixelSize,
+    printedImages,
     setCameraData,
     setIgnoreBorder,
     setIsDevMode,
     setIsLoading,
-    setParsedCameraData,
     setPixelSize,
+    setPrintedImages,
   }
 
   return (
