@@ -1,84 +1,103 @@
+/* eslint-disable no-magic-numbers */
 const PIXEL_COLORS = ['#ffffff', '#aaaaaa', '#555555', '#000000']
-const TILE_SIZE = 8
-const TILE_X_INDEX_MAX = 20
-const TILE_Y_INDEX_MAX = 18
 
-export const CanvasDrawImage = ({
-  ignoreBorder,
-  imageCanvas,
-  imageData,
-  pixelSize,
-}) => {
-  const context = imageCanvas.current.getContext('2d')
-  context.clearRect(0, 0, imageCanvas.current.width, imageCanvas.current.height)
+export const getCanvasDimensions = ({ ignoreBorder, pixels, pixelSize }) => {
+  const rowsCount = pixels.length
+  const colsCount = pixels[0].length
 
-  let tileX = 0
-  let tileY = 0
+  let canvasHeight = rowsCount * pixelSize
+  let canvasWidth = colsCount * pixelSize
 
-  for (let tile of imageData.tiles) {
-    if (ignoreBorder) {
-      if (
-        tileX < 2 ||
-        tileY < 2 ||
-        tileX > TILE_X_INDEX_MAX - 1 ||
-        tileY > TILE_Y_INDEX_MAX - 1
-      ) {
-        tileX += 1
-
-        if (tileX === TILE_X_INDEX_MAX) {
-          tileX = 0
-          tileY += 1
-        }
-        continue
-      }
-    }
-
-    let tileXOffset = tileX * TILE_SIZE * pixelSize
-    let tileYOffset = tileY * TILE_SIZE * pixelSize
-
-    if (ignoreBorder) {
-      tileXOffset -= TILE_SIZE * pixelSize * 2
-      tileYOffset -= TILE_SIZE * pixelSize * 2
-    }
-
-    let bitY = 0
-
-    for (let byte of tile.bytes) {
-      let bitX = 0
-
-      for (let bit of byte.bits) {
-        context.fillStyle = PIXEL_COLORS[bit.value]
-        context.fillRect(
-          tileXOffset + bitX * pixelSize,
-          tileYOffset + bitY * pixelSize,
-          pixelSize,
-          pixelSize,
-        )
-
-        bitX += 1
-      }
-
-      bitY += 1
-    }
-
-    tileX += 1
-
-    if (tileX === TILE_X_INDEX_MAX) {
-      tileX = 0
-      tileY += 1
-    }
+  if (ignoreBorder) {
+    canvasHeight -= 32 * pixelSize
+    canvasWidth -= 32 * pixelSize
   }
+
+  return { canvasHeight, canvasWidth }
 }
 
-export const CanvasDrawUpdateTileCoords = ({ tileX, tileY }) => {
-  tileX += 1
+export const getRectPositions = ({
+  colIndex,
+  ignoreBorder,
+  pixelSize,
+  rowIndex,
+}) => {
+  let rectX = colIndex * pixelSize
+  let rectY = rowIndex * pixelSize
 
-  if (tileX === TILE_X_INDEX_MAX) {
-    tileX = 0
-    tileY += 1
+  if (ignoreBorder) {
+    rectX -= 16 * pixelSize
+    rectY -= 16 * pixelSize
   }
 
-  return [tileX, tileY]
+  return { rectX, rectY }
+}
+
+const paintImageFromCanvas = ({ canvasHeight, canvasWidth, canvas, image }) => {
+  image.height = canvasHeight
+  image.width = canvasWidth
+
+  let imageData = canvas.toDataURL('image/png')
+  image.src = imageData
+  canvas.style.display = 'none'
+}
+
+export const CanvasDrawImage = ({
+  canvas,
+  ignoreBorder,
+  image,
+  pixels,
+  pixelSize,
+}) => {
+  const context = canvas.getContext('2d')
+  const { canvasHeight, canvasWidth } = getCanvasDimensions({
+    ignoreBorder,
+    pixels,
+    pixelSize,
+  })
+
+  canvas.height = canvasHeight
+  canvas.width = canvasWidth
+  context.fillStyle = PIXEL_COLORS[0]
+  context.fillRect(0, 0, canvasWidth, canvasHeight)
+
+  let colIndex = 0
+  let rowIndex = 0
+
+  for (let row of pixels) {
+    colIndex = 0
+
+    for (let pixel of row.split('')) {
+      if (pixel === 0) {
+        continue
+      }
+
+      let { rectX, rectY } = getRectPositions({
+        colIndex,
+        ignoreBorder,
+        pixelSize,
+        rowIndex,
+      })
+
+      if (rectX < 0 && rectY < 0) {
+        continue
+      }
+
+      context.fillStyle = PIXEL_COLORS[pixel]
+      context.fillRect(rectX, rectY, pixelSize, pixelSize)
+
+      colIndex += 1
+    }
+
+    rowIndex += 1
+  }
+
+  paintImageFromCanvas({
+    canvas,
+    canvasHeight,
+    canvasWidth,
+    image,
+  })
 }
 
 const CanvasHelper = {

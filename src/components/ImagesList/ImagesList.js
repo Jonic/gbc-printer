@@ -4,16 +4,14 @@ import AppContext from '../../contexts/App'
 import ImageCanvas from '../ImageCanvas/ImageCanvas'
 
 const ImagesList = () => {
-  const { parsedCameraData } = useContext(AppContext)
+  const { printedImages } = useContext(AppContext)
 
   return (
-    parsedCameraData && (
-      <section>
-        {parsedCameraData.images.map(imageData => {
-          return <ImageCanvas imageData={imageData} key={imageData.uuid} />
-        })}
-      </section>
-    )
+    <section>
+      {printedImages.map(image => {
+        return <ImageCanvas pixels={image.pixels} key={image.uuid} />
+      })}
+    </section>
   )
 }
 

@@ -5,7 +5,6 @@ exports[`<App /> Renders matches its snapshot 1`] = `
   <main
     className="c-app c-app--is-loading"
   >
-    <DevModeToggle />
     <h1
       className="c-app__title"
     >
