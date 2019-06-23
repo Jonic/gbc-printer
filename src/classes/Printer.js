@@ -4,13 +4,17 @@ import hexToBinary from 'hex-to-binary'
 import uuidv4 from 'uuid/v4'
 
 export default class Printer {
+  BYTES_COUNT = 2880
   SPLIT_DELIMITER = '# Finished Pretending To Print for fun!'
   TILE_SIZE = 8
   TILES_X = 20
   TILES_Y = 18
 
   constructor({ cameraData }) {
-    this.cameraDataImages = this.prepareImages(cameraData)
+    this.cameraDataImages = this.prepareImages(cameraData).filter(
+      image => image.length === this.BYTES_COUNT,
+    )
+
     this.images = this.cameraDataImages.map(this.decodeImage)
   }
 
@@ -67,6 +71,6 @@ export default class Printer {
       .join(' ')
       .split(' ')
 
-    return sanitisedImage.length > 0 && chunk(sanitisedImage, 2)
+    return chunk(sanitisedImage, 2)
   }
 }
