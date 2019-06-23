@@ -33,15 +33,23 @@ export const getRectPositions = ({
   return { rectX, rectY }
 }
 
+const paintImageFromCanvas = ({ canvasHeight, canvasWidth, canvas, image }) => {
+  image.height = canvasHeight
+  image.width = canvasWidth
+
+  let imageData = canvas.toDataURL('image/png')
+  image.src = imageData
+  canvas.style.display = 'none'
+}
+
 export const CanvasDrawImage = ({
+  canvas,
   ignoreBorder,
-  imageCanvas,
+  image,
   pixels,
   pixelSize,
 }) => {
-  const canvas = imageCanvas.current
-  const context = imageCanvas.current.getContext('2d')
-
+  const context = canvas.getContext('2d')
   const { canvasHeight, canvasWidth } = getCanvasDimensions({
     ignoreBorder,
     pixels,
@@ -83,6 +91,13 @@ export const CanvasDrawImage = ({
 
     rowIndex += 1
   }
+
+  paintImageFromCanvas({
+    canvas,
+    canvasHeight,
+    canvasWidth,
+    image,
+  })
 }
 
 const CanvasHelper = {
