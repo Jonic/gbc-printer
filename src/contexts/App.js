@@ -10,13 +10,11 @@ const fn = () => {}
 const AppContext = React.createContext({
   cameraData: '',
   ignoreBorder: true,
-  isDevMode: false,
   isLoading: true,
   pixelSize: 5,
   printedImages: [],
   setCameraData: fn,
   setIgnoreBorder: fn,
-  setIsDevMode: fn,
   setIsLoading: fn,
   setPixelSize: fn,
   setPrintedImages: fn,
@@ -25,31 +23,24 @@ const AppContext = React.createContext({
 const AppContextProvider = ({ children }) => {
   const [cameraData, setCameraData] = useState('')
   const [ignoreBorder, setIgnoreBorder] = useState(true)
-  const [isDevMode, setIsDevMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [pixelSize, setPixelSize] = useState(5)
   const [printedImages, setPrintedImages] = useState([])
 
   useEffect(() => {
-    if (!cameraData) {
-      return
-    }
-
-    const printerData = new Printer({ cameraData, ignoreBorder })
+    const printerData = new Printer({ cameraData })
     trackCameraDataProcess()
     setPrintedImages(printerData.images)
-  }, [cameraData, ignoreBorder, isDevMode])
+  }, [cameraData])
 
   const contextValue = {
     cameraData,
     ignoreBorder,
-    isDevMode,
     isLoading,
     pixelSize,
     printedImages,
     setCameraData,
     setIgnoreBorder,
-    setIsDevMode,
     setIsLoading,
     setPixelSize,
     setPrintedImages,
