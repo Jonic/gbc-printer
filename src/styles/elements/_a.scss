@@ -1,0 +1,26 @@
+a {
+  --color: navy;
+  --font-weight: var(--font-weight-medium);
+  --hover-color: var(--color-black);
+  --visited-color: rebeccapurple;
+  --transition-duration: var(--transition-duration-short);
+  --transition-timing: var(--transition-timing-eased);
+
+  color: var(--color);
+  cursor: pointer;
+  font-weight: var(--font-weight);
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  transition-duration: var(--transition-duration);
+  transition-property: color;
+  transition-timing-function: var(--transition-timing);
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a:visited {
+  color: var(--color);
+}
