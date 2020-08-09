@@ -43,7 +43,7 @@
     "babel-jest": "24.8.0",
     "canvas": "2.5.0",
     "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.14.0",
+    "enzyme-adapter-react-16": "1.15.3",
     "eslint": "5.16.0",
     "eslint-config-prettier": "5.0.0",
     "eslint-plugin-jest": "22.6.4",
