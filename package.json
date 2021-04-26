@@ -70,7 +70,7 @@
     "web-audio-test-api": "0.5.2"
   },
   "engines": {
-    "node": "10.16.0"
+    "node": "10.24.1"
   },
   "lint-staged": {
     "*.js": [
