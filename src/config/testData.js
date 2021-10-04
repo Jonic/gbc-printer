@@ -1,8 +1,4 @@
 export default `
-# GAMEBOY PRINTER EMULATION PROJECT
-# By Brian Khuu (2017)
-!{"command":"INIT"}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -43,8 +39,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -85,7 +79,6 @@ AA 55 54 AB AA 55 01 FE AA 55 F7 08 DD 00 EE 00
 A8 57 45 BA AB 54 7E 80 A7 50 FB 00 55 00 FA 00
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 14 00 28 00 55 00 18 00 55 00 B8 00
@@ -126,8 +119,6 @@ F7 00 FE 00 FB 04 FE 00 77 00 FF 00 EB 14 FC 02
 73 00 BB 00 55 00 2A 00 50 00 00 00 00 00 00 00
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 67 10 FF 00 67 10 FF 00 67 10 FB 00 5D 00 FF 00
@@ -168,7 +159,6 @@ AA 55 FC 03 D2 05 FD 02 A6 51 49 B2 A6 51 F9 02
 AA 55 45 BA AB 54 C1 3E AB 54 D4 2A AB 54 7E 80
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 37 00 7A 80 97 40 3A C0 A6 51 1C E3 E8 57 20 DF
@@ -209,8 +199,6 @@ A6 51 B9 02 56 01 AF 00 AA 55 46 B9 AA 55 75 8A
 FB 04 DE 20 B8 44 7E 80 AB 54 47 B8 AA 55 55 AA
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 AA 55 FC 03 EA 15 FF 00 3E 41 BF 00 5E 01 8F 00
@@ -251,7 +239,6 @@ AA 55 BD 02 5A 05 3C 03 15 7F B0 FF 55 FF CB FF
 AA 55 04 FB AA 55 11 EE AA 55 55 AA AA 55 01 FE
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 55 00 02 00 55 00 0A 00 55 00 2F 00 55 00 EF 00
@@ -292,8 +279,6 @@ A9 57 00 FF 80 7F 00 FF 75 1F C0 3F 88 77 51 AE
 91 7F 23 FF 09 F7 10 EF 29 D7 02 FF A1 5F 00 FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 67 10 FF 00 2F 50 FF 00 76 01 FF 00 55 00 FF 00
@@ -334,7 +319,6 @@ D5 FF FF FF 57 FF FF FF FF FF FF FF F7 FF DF FF
 7D FF FA FF D4 FF F8 FF 75 FF 42 FF 54 FF 00 FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -375,32 +359,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":0}
-!{"command":"PRNT","sheets":1,"margin_upper":1,"margin_lower":3,"pallet":228,"density":64 }
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
 # Finished Pretending To Print for fun!
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":0,"chk_err":0}}
-!{"command":"INIT"}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -441,8 +400,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 51 00 00 00 40 00 00 00 01 00 00 00 00 00 00 00
@@ -483,7 +440,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 F7 00 FF 00 FF 00 FF 00 6E 11 FF 00 DF 00 FF 00
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -524,8 +480,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 EE 11 FF 00 AA 55 FF 00 EA 15 DD 22 AA 55 D0 2F
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -566,7 +520,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 55 FF FF FF 55 FF FF FF 57 FF FF FF 5D FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 40 00 00 00 11 00 00 00 40 00 00 00
@@ -607,8 +560,6 @@ F7 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF 7F FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 00 00 00 00 00 00 00 00 00 00 00 00 90 40 28 F0
@@ -649,7 +600,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 55 FF 03 FF 75 FF FF FF 7F FF BF FF 5F FF FF FF
@@ -690,8 +640,6 @@ FF FF FF FF FF FF FF FF F7 FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 7F FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -732,7 +680,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -773,32 +720,7 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":0}
-!{"command":"PRNT","sheets":1,"margin_upper":1,"margin_lower":3,"pallet":228,"density":64 }
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
 # Finished Pretending To Print for fun!
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":0,"chk_err":0}}
-!{"command":"INIT"}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -839,8 +761,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 3E 41 FF 00 AF 50 7F 80 8A 75 00 FF 82 7D 00 FF
@@ -881,7 +801,6 @@ FF FF FF FF FD FF FF FF 7F FF FF FF FF FF FF FF
 4A F5 E4 FB 4A F5 C1 FE FA F5 F0 FF DA F5 E1 FE
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 8A 75 44 BB AA 55 81 7E AA 55 84 7B AA 55 00 FF
@@ -922,8 +841,6 @@ D5 7F 27 FF 45 FF 06 FF 55 FF 03 FF 85 7F 83 FF
 FF FF FF FF FF FF FE FF F7 FF FF FF FD FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 2A 55 9F 60 AA 55 9F 60 2A 55 F4 0B AA 55 F7 08
@@ -964,7 +881,6 @@ D7 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 F7 FF FF FF FD FF FF FF F7 FF FF FF DD FF F5 FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 7E 01 FF 00 7A 05 FF 00 76 01 FF 00 3D 40 FF 00
@@ -1005,8 +921,6 @@ A9 57 40 BF AA 55 02 FF 55 FF 10 FF AA 55 75 8A
 55 FF F7 FF 55 FF EF FF 5F FF BF FF 5F FF BF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 77 00 FF 00 55 00 FF 00 55 00 FF 00 55 00 FF 00
@@ -1047,7 +961,6 @@ EA 15 FC 03 AA 55 F4 0B 2A 55 54 AB AA 55 74 8B
 7F FF FF FF 7F FF FF FF 55 FF FF FF 5F FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 55 00 FB 00 55 00 FF 00 55 00 BB 00 55 00 EF 00
@@ -1088,8 +1001,6 @@ FF FF FF FF F7 FF FF FF F7 FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":1,"full":0,"bsy":0,"chk_err":0}}
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 55 00 AB 00 55 00 AA 00 55 00 A2 00 55 00 8A 00
@@ -1130,7 +1041,6 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":1}
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
@@ -1171,28 +1081,5 @@ FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
-!{"command":"DATA","compressed":0,"more":0}
-!{"command":"PRNT","sheets":1,"margin_upper":1,"margin_lower":3,"pallet":228,"density":64 }
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":1,"chk_err":0}}
 # Finished Pretending To Print for fun!
-!{"command":"INQY","status":{"lowbatt":0,"jam":0,"err":0,"pkterr":0,"unproc":0,"full":1,"bsy":0,"chk_err":0}}
 `
