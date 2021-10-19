@@ -23,7 +23,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-ga": "2.5.7",
-    "react-scripts": "3.0.1",
+    "react-scripts": "4.0.0",
     "uuid": "3.3.2"
   },
   "scripts": {
@@ -52,7 +52,7 @@
     "eslint-plugin-react": "7.13.0",
     "eslint-plugin-react-hooks": "4.0.8",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.8.0",
+    "jest": "26.0.0",
     "jest-environment-enzyme": "7.0.2",
     "jest-environment-jsdom": "24.8.0",
     "jest-environment-jsdom-global": "1.2.0",
